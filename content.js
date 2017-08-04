@@ -36,12 +36,12 @@ function load() {
     videoId = url.searchParams.get("v");
     console.log(videoId);
 
-    video.addEventListener("timeupdate", onTimeUpdate);
+    if (video) {
+        video.addEventListener("timeupdate", onTimeUpdate);
+    }
 }
 
 
 load();
 
-browser.runtime.onMessage.addListener(function (message) {
-    load();
-});
+browser.runtime.onMessage.addListener(load);
