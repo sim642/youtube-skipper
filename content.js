@@ -1,12 +1,24 @@
+var video;
+var onTimeUpdate;
+
+function unload() {
+    if (video) {
+        video.removeEventListener("timeupdate", onTimeUpdate);
+    }
+}
+
 function load() {
-    var video = document.querySelector("video");
+    unload();
+
+    video = document.querySelector("video");
     console.log(video);
 
-    video.addEventListener("timeupdate", function () {
+    onTimeUpdate = function () {
         if (video.currentTime > 10 && video.currentTime < 20) {
             video.currentTime = 20;
         }
-    });
+    };
+    video.addEventListener("timeupdate", onTimeUpdate);
 }
 
 
