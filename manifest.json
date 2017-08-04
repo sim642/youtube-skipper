@@ -9,10 +9,16 @@
     "48": "icons/ic_skip_next_black_24dp_2x.png"
   },
 
+  "permissions": ["webNavigation"],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
-      "js": ["youtube-skipper.js"]
+      "js": ["content.js"]
     }
   ]
 }
