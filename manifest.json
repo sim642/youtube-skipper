@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Youtube Skipper",
+  "version": "0.1",
+
+  "description": "Automatically skips advertisement parts of Youtube videos via crowd sourcing.",
+
+  "icons": {
+    "48": "icons/ic_skip_next_black_24dp_2x.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["youtube-skipper.js"]
+    }
+  ]
+}
