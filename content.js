@@ -1,5 +1,11 @@
 var video;
-var onTimeUpdate;
+var videoId;
+
+function onTimeUpdate() {
+    if (video.currentTime > 10 && video.currentTime < 20) {
+        video.currentTime = 20;
+    }
+}
 
 function unload() {
     if (video) {
@@ -14,14 +20,9 @@ function load() {
     console.log(video);
 
     var url = new URL(window.location.href);
-    var videoId = url.searchParams.get("v");
+    videoId = url.searchParams.get("v");
     console.log(videoId);
 
-    onTimeUpdate = function () {
-        if (video.currentTime > 10 && video.currentTime < 20) {
-            video.currentTime = 20;
-        }
-    };
     video.addEventListener("timeupdate", onTimeUpdate);
 }
 
