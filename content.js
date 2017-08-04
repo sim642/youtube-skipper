@@ -1,9 +1,22 @@
 var video;
 var videoId;
 
+var sections = [
+    {
+        start: 0,
+        end: 5
+    },
+    {
+        start: 15,
+        end: 30
+    }
+];
+
 function onTimeUpdate() {
-    if (video.currentTime > 10 && video.currentTime < 20) {
-        video.currentTime = 20;
+    for (var section of sections) {
+        if (video.currentTime >= section.start && video.currentTime < section.end) {
+            video.currentTime = section.end;
+        }
     }
 }
 
